@@ -1,0 +1,9 @@
+C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI\Src\MCVRestAPI\bin\Debug\netcoreapp1.1\MCVRestAPI.deps.json
+C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI\Src\MCVRestAPI\bin\Debug\netcoreapp1.1\MCVRestAPI.runtimeconfig.json
+C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI\Src\MCVRestAPI\bin\Debug\netcoreapp1.1\MCVRestAPI.runtimeconfig.dev.json
+C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI\Src\MCVRestAPI\bin\Debug\netcoreapp1.1\MCVRestAPI.dll
+C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI\Src\MCVRestAPI\bin\Debug\netcoreapp1.1\MCVRestAPI.pdb
+C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI\Src\MCVRestAPI\obj\Debug\netcoreapp1.1\MCVRestAPI.csprojResolveAssemblyReference.cache
+C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI\Src\MCVRestAPI\obj\Debug\netcoreapp1.1\MCVRestAPI.AssemblyInfo.cs
+C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI\Src\MCVRestAPI\obj\Debug\netcoreapp1.1\MCVRestAPI.dll
+C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI\Src\MCVRestAPI\obj\Debug\netcoreapp1.1\MCVRestAPI.pdb
