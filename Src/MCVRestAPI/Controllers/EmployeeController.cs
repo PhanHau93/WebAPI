@@ -16,10 +16,10 @@ namespace MCVRestAPI.Controllers
         public EmployeeController(EmployeeContext context)
         {
             _context = context;
-
+            
             if (_context.EmployeeItems.Count() == 0)
             {
-                _context.EmployeeItems.Add(new EmployeeItem { name = "Nombre", adress = "Direccion" });
+                _context.EmployeeItems.Add(new EmployeeItem { name = "Nombre", address = "Direccion" });
                 _context.SaveChangesAsync();
             }
         }
@@ -76,14 +76,41 @@ namespace MCVRestAPI.Controllers
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public IActionResult Update(int id, [FromBody]EmployeeItem item)
         {
+            if (item == null)
+            {
+                return BadRequest();
+            }
+            var employee = _context.EmployeeItems.Where(x => x.id.Equals(id)).FirstOrDefault();
+            if (employee == null)
+            {
+                return NotFound();
+            }
+            employee.address = item.address;
+            employee.name = item.name;
+
+            _context.EmployeeItems.Update(employee);
+            _context.SaveChanges();
+
+            return new NoContentResult();
+
+            
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+             var employee = _context.EmployeeItems.Where(x => x.id.Equals(id)).FirstOrDefault();
+            if (employee == null)
+            {
+                return NotFound();
+            }
+            _context.EmployeeItems.Remove(employee);
+
+            _context.SaveChanges();
+            return new NoContentResult();
         }
     }
 }

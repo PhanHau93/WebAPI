@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using MCVRestAPI.Models;
 using Microsoft.EntityFrameworkCore;
+
 namespace MCVRestAPI
 {
     public class Startup
@@ -33,6 +34,9 @@ namespace MCVRestAPI
 
             //Add EmployeeContext
             services.AddDbContext<EmployeeContext>(opt => opt.UseInMemoryDatabase());
+            //MS SQL
+            //services.AddDbContext<EmployeeContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("MSSQL")));
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
