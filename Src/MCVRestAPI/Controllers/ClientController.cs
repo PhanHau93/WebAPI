@@ -11,24 +11,30 @@ using MCVRestAPI.Context;
 namespace MCVRestAPI.Controllers
 {
     [Route("api/[controller]")]
-    public class EmployeeController : Controller
+    public class ClientController : Controller
     {
         private readonly ApplicationContext _context;
-        public EmployeeController(ApplicationContext context)
+        public ClientController(ApplicationContext context)
         {
             _context = context;
             
-            if (_context.EmployeeItems.Count() == 0)
+            if (_context.ClientItems.Count() == 0)
             {
-                _context.EmployeeItems.Add(new EmployeeItem { name = "Nombre", address = "Direccion" });
+                _context.ClientItems.Add(new ClientItem {
+                    name = "Nombre",
+                    address = "Direccion",
+                    secondName = "Apellido",
+                    email = "Email",
+                    telefono = "Telefono"
+                    });
                 _context.SaveChangesAsync();
             }
         }
         // GET: api/values
         [HttpGet]
-        public IEnumerable<EmployeeItem> Get()
+        public IEnumerable<ClientItem> Get()
         {
-            return _context.EmployeeItems;
+            return _context.ClientItems;
         }
 
         // GET api/values/5
@@ -47,10 +53,10 @@ namespace MCVRestAPI.Controllers
         //}
 
         // GET api/values/5
-        [HttpGet("{id}", Name ="GetEmployee")]
+        [HttpGet("{id}", Name ="GetClient")]
         public IActionResult GetEmployeeById(int id)
         {
-            var item = _context.EmployeeItems.Where(emp => emp.id.Equals(id)).FirstOrDefault();
+            var item = _context.ClientItems.Where(emp => emp.id.Equals(id)).FirstOrDefault();
             if (item == null)
             {
                 return NotFound();
@@ -63,27 +69,27 @@ namespace MCVRestAPI.Controllers
 
         // Post api/employee
         [HttpPost]
-        public IActionResult Create([FromBody]EmployeeItem item)
+        public IActionResult Create([FromBody]ClientItem item)
         {
             if (item == null)
             {
                 return BadRequest();
             }
-            _context.EmployeeItems.Add(item);
+            _context.ClientItems.Add(item);
             _context.SaveChangesAsync();
 
-            return CreatedAtRoute("GetEmployee", new { id = item.id }, item);
+            return CreatedAtRoute("GetClient", new { id = item.id }, item);
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public IActionResult Update(int id, [FromBody]EmployeeItem item)
+        public IActionResult Update(int id, [FromBody]ClientItem item)
         {
             if (item == null)
             {
                 return BadRequest();
             }
-            var employee = _context.EmployeeItems.Where(x => x.id.Equals(id)).FirstOrDefault();
+            var employee = _context.ClientItems.Where(x => x.id.Equals(id)).FirstOrDefault();
             if (employee == null)
             {
                 return NotFound();
@@ -91,7 +97,7 @@ namespace MCVRestAPI.Controllers
             employee.address = item.address;
             employee.name = item.name;
 
-            _context.EmployeeItems.Update(employee);
+            _context.ClientItems.Update(employee);
             _context.SaveChanges();
 
             return new NoContentResult();
@@ -103,12 +109,12 @@ namespace MCVRestAPI.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-             var employee = _context.EmployeeItems.Where(x => x.id.Equals(id)).FirstOrDefault();
+             var employee = _context.ClientItems.Where(x => x.id.Equals(id)).FirstOrDefault();
             if (employee == null)
             {
                 return NotFound();
             }
-            _context.EmployeeItems.Remove(employee);
+            _context.ClientItems.Remove(employee);
 
             _context.SaveChanges();
             return new NoContentResult();

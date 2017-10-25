@@ -6,15 +6,14 @@ using System.Threading.Tasks;
 
 namespace MCVRestAPI.Models
 {
-    public class EmployeeItem 
+    public class ClientItem 
     {
         public int id { get; set; }
         public string name { get; set; }
         public string secondName { get; set; }
         public string address { get; set; }        
-        public DateTime dateOfBird { get; set; }
-        public DateTime startDate { get; set; }
-        public DateTime? endDate { get; set; }
+        public string email { get; set; }
+        public string telefono { get; set; }     
 
     }
 

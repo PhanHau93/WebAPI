@@ -7,8 +7,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using MCVRestAPI.Models;
+
 using Microsoft.EntityFrameworkCore;
+using MCVRestAPI.Context;
 
 namespace MCVRestAPI
 {
@@ -33,10 +34,12 @@ namespace MCVRestAPI
             services.AddMvc();
 
             //Add EmployeeContext
-            services.AddDbContext<EmployeeContext>(opt => opt.UseInMemoryDatabase());
+            services.AddDbContext<ApplicationContext>(opt => opt.UseInMemoryDatabase());
+            //services.AddDbContext<ClientContext>(opt => opt.UseInMemoryDatabase());
+            //services.AddDbContext<ProviderContext>(opt => opt.UseInMemoryDatabase());
             //MS SQL
             //services.AddDbContext<EmployeeContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("MSSQL")));
-            
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
