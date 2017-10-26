@@ -15,3 +15,4 @@ C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\MCVRestAPI\bin\Debug\netco
 C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\MCVRestAPI\obj\Debug\netcoreapp1.1\MCVRestAPI.AssemblyInfo.cs
 C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\MCVRestAPI\obj\Debug\netcoreapp1.1\MCVRestAPI.dll
 C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\MCVRestAPI\obj\Debug\netcoreapp1.1\MCVRestAPI.pdb
+C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\MCVRestAPI\obj\Debug\netcoreapp1.1\MCVRestAPI.csprojResolveAssemblyReference.cache

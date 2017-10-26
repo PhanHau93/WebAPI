@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26228.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCVRestAPI", "MCVRestAPI\MCVRestAPI.csproj", "{A04403B8-E89F-4C1B-A710-62C48CF7B41A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppGes", "AppGes\AppGes.csproj", "{03B9A1F5-E79C-404C-B663-5697A7AE54B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A04403B8-E89F-4C1B-A710-62C48CF7B41A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A04403B8-E89F-4C1B-A710-62C48CF7B41A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A04403B8-E89F-4C1B-A710-62C48CF7B41A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03B9A1F5-E79C-404C-B663-5697A7AE54B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03B9A1F5-E79C-404C-B663-5697A7AE54B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03B9A1F5-E79C-404C-B663-5697A7AE54B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03B9A1F5-E79C-404C-B663-5697A7AE54B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

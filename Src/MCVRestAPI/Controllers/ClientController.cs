@@ -25,7 +25,8 @@ namespace MCVRestAPI.Controllers
                     address = "Direccion",
                     secondName = "Apellido",
                     email = "Email",
-                    telefono = "Telefono"
+                    telefono = "Telefono",
+                    city="Malaga"
                     });
                 _context.SaveChangesAsync();
             }
@@ -89,15 +90,19 @@ namespace MCVRestAPI.Controllers
             {
                 return BadRequest();
             }
-            var employee = _context.ClientItems.Where(x => x.id.Equals(id)).FirstOrDefault();
-            if (employee == null)
+            var client = _context.ClientItems.Where(x => x.id.Equals(id)).FirstOrDefault();
+            if (client == null)
             {
                 return NotFound();
             }
-            employee.address = item.address;
-            employee.name = item.name;
+            client.address = item.address;
+            client.name = item.name;
+            client.city = item.city;
+            client.email = item.email;
+            client.secondName = item.secondName;
+            client.telefono = item.telefono;
 
-            _context.ClientItems.Update(employee);
+            _context.ClientItems.Update(client);
             _context.SaveChanges();
 
             return new NoContentResult();
