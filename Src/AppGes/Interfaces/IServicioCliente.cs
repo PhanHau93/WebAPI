@@ -9,6 +9,11 @@ namespace AppGes.Interfaces
 {
     public interface IServicioCliente
     {
-        
+        IEnumerable<ClientItem> getClient();
+        ClientItem getClientById(int id);
+        void addClient(ClientItem client);
+        void updateClient(ClientItem client);
+        void deleteClient(int id);
+
     }
 }

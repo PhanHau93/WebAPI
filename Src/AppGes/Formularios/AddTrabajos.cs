@@ -16,7 +16,7 @@ namespace AppGes.Formularios
         private int ModoApertura { get; set; }
         public AddTrabajos() //Nuevo
         {
-            this.ModoApertura = Convert.ToInt32(Modo.nuevo);
+            //this.ModoApertura = Convert.ToInt32(Modo.nuevo);
             InitializeComponent();
         }
         public AddTrabajos(int id, bool consulta)
@@ -45,6 +45,12 @@ namespace AppGes.Formularios
         {
             ClientesForm clientesForm = new ClientesForm(-1, false);
             clientesForm.Show();
+        }
+
+        private void salirToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            //Preguntar por cambios            
+            this.Close();
         }
     }
 }

@@ -21,12 +21,7 @@ namespace AppGes.Formularios
         {
             ClientesForm clientesForm = new ClientesForm();
             clientesForm.Show();
-        }
-
-        private void dgvTrabajos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        }       
 
         private void TrabajosForm_Load(object sender, EventArgs e)
         {
@@ -36,21 +31,27 @@ namespace AppGes.Formularios
         private void añadirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddTrabajos addTrabajos = new AddTrabajos();
-            addTrabajos.Show();
+            addTrabajos.ShowDialog();
         }
 
         private void consultarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int id = 0;
             AddTrabajos addTrabajos = new AddTrabajos(id ,true);
-            addTrabajos.Show();
+            addTrabajos.ShowDialog();
         }
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int id = 0;
             AddTrabajos addTrabajos = new AddTrabajos(id, false);
-            addTrabajos.Show();
+            
+            addTrabajos.ShowDialog();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();            
         }
     }
 }

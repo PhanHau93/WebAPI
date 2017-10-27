@@ -1,4 +1,7 @@
-﻿namespace AppGes.Formularios
+﻿using System;
+using System.Windows.Forms;
+
+namespace AppGes.Formularios
 {
     partial class ClientesForm
     {
@@ -49,16 +52,6 @@
             this.lbId = new System.Windows.Forms.Label();
             this.tbClienteId = new System.Windows.Forms.TextBox();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NIF = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Localidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Eliminar = new System.Windows.Forms.DataGridViewLinkColumn();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.lbObservaciones = new System.Windows.Forms.Label();
             this.tbObservaciones = new System.Windows.Forms.TextBox();
@@ -70,6 +63,16 @@
             this.nuevoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NIF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Localidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
@@ -82,7 +85,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.95811F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.04189F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 143F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 562F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 569F));
             this.tableLayoutPanel1.Controls.Add(this.lbName, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tbNombre, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.lbApellidos, 0, 1);
@@ -121,9 +124,9 @@
             // 
             // tbNombre
             // 
-            this.tbNombre.Location = new System.Drawing.Point(148, 3);
+            this.tbNombre.Location = new System.Drawing.Point(146, 3);
             this.tbNombre.Name = "tbNombre";
-            this.tbNombre.Size = new System.Drawing.Size(389, 29);
+            this.tbNombre.Size = new System.Drawing.Size(384, 29);
             this.tbNombre.TabIndex = 3;
             // 
             // lbApellidos
@@ -137,9 +140,9 @@
             // 
             // tbApellidos
             // 
-            this.tbApellidos.Location = new System.Drawing.Point(148, 49);
+            this.tbApellidos.Location = new System.Drawing.Point(146, 49);
             this.tbApellidos.Name = "tbApellidos";
-            this.tbApellidos.Size = new System.Drawing.Size(389, 29);
+            this.tbApellidos.Size = new System.Drawing.Size(384, 29);
             this.tbApellidos.TabIndex = 5;
             // 
             // lbEmail
@@ -153,9 +156,9 @@
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(148, 95);
+            this.tbEmail.Location = new System.Drawing.Point(146, 95);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(389, 29);
+            this.tbEmail.Size = new System.Drawing.Size(384, 29);
             this.tbEmail.TabIndex = 12;
             // 
             // lbTelefono
@@ -169,15 +172,15 @@
             // 
             // tbTelefono
             // 
-            this.tbTelefono.Location = new System.Drawing.Point(148, 143);
+            this.tbTelefono.Location = new System.Drawing.Point(146, 143);
             this.tbTelefono.Name = "tbTelefono";
-            this.tbTelefono.Size = new System.Drawing.Size(389, 29);
+            this.tbTelefono.Size = new System.Drawing.Size(384, 29);
             this.tbTelefono.TabIndex = 10;
             // 
             // lbLocalidad
             // 
             this.lbLocalidad.AutoSize = true;
-            this.lbLocalidad.Location = new System.Drawing.Point(543, 92);
+            this.lbLocalidad.Location = new System.Drawing.Point(536, 92);
             this.lbLocalidad.Name = "lbLocalidad";
             this.lbLocalidad.Size = new System.Drawing.Size(96, 25);
             this.lbLocalidad.TabIndex = 7;
@@ -185,7 +188,7 @@
             // 
             // tbLocalidad
             // 
-            this.tbLocalidad.Location = new System.Drawing.Point(686, 95);
+            this.tbLocalidad.Location = new System.Drawing.Point(679, 95);
             this.tbLocalidad.Name = "tbLocalidad";
             this.tbLocalidad.Size = new System.Drawing.Size(548, 29);
             this.tbLocalidad.TabIndex = 1;
@@ -193,7 +196,7 @@
             // lbDireccion
             // 
             this.lbDireccion.AutoSize = true;
-            this.lbDireccion.Location = new System.Drawing.Point(543, 46);
+            this.lbDireccion.Location = new System.Drawing.Point(536, 46);
             this.lbDireccion.Name = "lbDireccion";
             this.lbDireccion.Size = new System.Drawing.Size(93, 25);
             this.lbDireccion.TabIndex = 6;
@@ -201,7 +204,7 @@
             // 
             // tbDireccion
             // 
-            this.tbDireccion.Location = new System.Drawing.Point(686, 49);
+            this.tbDireccion.Location = new System.Drawing.Point(679, 49);
             this.tbDireccion.Name = "tbDireccion";
             this.tbDireccion.Size = new System.Drawing.Size(548, 29);
             this.tbDireccion.TabIndex = 9;
@@ -209,7 +212,7 @@
             // lbNif
             // 
             this.lbNif.AutoSize = true;
-            this.lbNif.Location = new System.Drawing.Point(543, 0);
+            this.lbNif.Location = new System.Drawing.Point(536, 0);
             this.lbNif.Name = "lbNif";
             this.lbNif.Size = new System.Drawing.Size(43, 25);
             this.lbNif.TabIndex = 13;
@@ -218,7 +221,7 @@
             // lbCP
             // 
             this.lbCP.AutoSize = true;
-            this.lbCP.Location = new System.Drawing.Point(543, 140);
+            this.lbCP.Location = new System.Drawing.Point(536, 140);
             this.lbCP.Name = "lbCP";
             this.lbCP.Size = new System.Drawing.Size(45, 25);
             this.lbCP.TabIndex = 14;
@@ -226,14 +229,14 @@
             // 
             // tbCP
             // 
-            this.tbCP.Location = new System.Drawing.Point(686, 143);
+            this.tbCP.Location = new System.Drawing.Point(679, 143);
             this.tbCP.Name = "tbCP";
             this.tbCP.Size = new System.Drawing.Size(100, 29);
             this.tbCP.TabIndex = 16;
             // 
             // tbNif
             // 
-            this.tbNif.Location = new System.Drawing.Point(686, 3);
+            this.tbNif.Location = new System.Drawing.Point(679, 3);
             this.tbNif.Name = "tbNif";
             this.tbNif.Size = new System.Drawing.Size(100, 29);
             this.tbNif.TabIndex = 15;
@@ -257,6 +260,9 @@
             // 
             // dgvClientes
             // 
+            this.dgvClientes.AllowUserToAddRows = false;
+            this.dgvClientes.AllowUserToDeleteRows = false;
+            this.dgvClientes.AllowUserToResizeRows = false;
             this.dgvClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -268,88 +274,15 @@
             this.Telefono,
             this.Direccion,
             this.Localidad,
-            this.CP,
-            this.Eliminar});
+            this.CP});
             this.dgvClientes.Location = new System.Drawing.Point(12, 532);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
             this.dgvClientes.RowTemplate.Height = 31;
+            this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClientes.Size = new System.Drawing.Size(1246, 263);
             this.dgvClientes.TabIndex = 2;
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Width = 69;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 122;
-            // 
-            // Apellidos
-            // 
-            this.Apellidos.HeaderText = "Apellidos";
-            this.Apellidos.Name = "Apellidos";
-            this.Apellidos.ReadOnly = true;
-            this.Apellidos.Width = 133;
-            // 
-            // NIF
-            // 
-            this.NIF.HeaderText = "NIF";
-            this.NIF.Name = "NIF";
-            this.NIF.ReadOnly = true;
-            this.NIF.Width = 84;
-            // 
-            // Email
-            // 
-            this.Email.HeaderText = "Email";
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            this.Email.Width = 101;
-            // 
-            // Telefono
-            // 
-            this.Telefono.HeaderText = "Telefono";
-            this.Telefono.Name = "Telefono";
-            this.Telefono.ReadOnly = true;
-            this.Telefono.Width = 130;
-            // 
-            // Direccion
-            // 
-            this.Direccion.HeaderText = "Direccion";
-            this.Direccion.Name = "Direccion";
-            this.Direccion.ReadOnly = true;
-            this.Direccion.Width = 134;
-            // 
-            // Localidad
-            // 
-            this.Localidad.HeaderText = "Localidad";
-            this.Localidad.Name = "Localidad";
-            this.Localidad.ReadOnly = true;
-            this.Localidad.Width = 137;
-            // 
-            // CP
-            // 
-            this.CP.HeaderText = "CP";
-            this.CP.Name = "CP";
-            this.CP.ReadOnly = true;
-            this.CP.Width = 81;
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
-            this.Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Eliminar.Text = "Eliminar";
-            this.Eliminar.ToolTipText = "Eliminar";
-            this.Eliminar.Width = 87;
+            this.dgvClientes.SelectionChanged += new System.EventHandler(this.dgvClientes_SelectionChanged);
             // 
             // tableLayoutPanel3
             // 
@@ -406,20 +339,23 @@
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(178, 34);
-            this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(239, 34);
+            this.salirToolStripMenuItem.Text = "Guardar";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.guardarToolStripMenuItem_Click);
             // 
             // guardarToolStripMenuItem
             // 
             this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(178, 34);
-            this.guardarToolStripMenuItem.Text = "Guardar";
+            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(239, 34);
+            this.guardarToolStripMenuItem.Text = "Salir";
+            this.guardarToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // opcionesToolStripMenuItem
             // 
             this.opcionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nuevoToolStripMenuItem,
-            this.editarToolStripMenuItem});
+            this.editarToolStripMenuItem,
+            this.eliminarToolStripMenuItem});
             this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
             this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(112, 34);
             this.opcionesToolStripMenuItem.Text = "Opciones";
@@ -429,12 +365,14 @@
             this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
             this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(165, 34);
             this.nuevoToolStripMenuItem.Text = "Nuevo";
+            this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click);
             // 
             // editarToolStripMenuItem
             // 
             this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
             this.editarToolStripMenuItem.Size = new System.Drawing.Size(165, 34);
             this.editarToolStripMenuItem.Text = "Editar";
+            this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
             // 
             // dataGridViewImageColumn1
             // 
@@ -445,6 +383,85 @@
             this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn1.ToolTipText = "Eliminar";
             this.dataGridViewImageColumn1.Width = 87;
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Width = 69;
+            // 
+            // Nombre
+            // 
+            this.Nombre.DataPropertyName = "Nombre";
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 122;
+            // 
+            // Apellidos
+            // 
+            this.Apellidos.DataPropertyName = "Apellidos";
+            this.Apellidos.HeaderText = "Apellidos";
+            this.Apellidos.Name = "Apellidos";
+            this.Apellidos.ReadOnly = true;
+            this.Apellidos.Width = 133;
+            // 
+            // NIF
+            // 
+            this.NIF.DataPropertyName = "NIF";
+            this.NIF.HeaderText = "NIF";
+            this.NIF.Name = "NIF";
+            this.NIF.ReadOnly = true;
+            this.NIF.Width = 84;
+            // 
+            // Email
+            // 
+            this.Email.DataPropertyName = "Email";
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            this.Email.Width = 101;
+            // 
+            // Telefono
+            // 
+            this.Telefono.DataPropertyName = "Telefono";
+            this.Telefono.HeaderText = "Telefono";
+            this.Telefono.Name = "Telefono";
+            this.Telefono.ReadOnly = true;
+            this.Telefono.Width = 130;
+            // 
+            // Direccion
+            // 
+            this.Direccion.DataPropertyName = "Direccion";
+            this.Direccion.HeaderText = "Direccion";
+            this.Direccion.Name = "Direccion";
+            this.Direccion.ReadOnly = true;
+            this.Direccion.Width = 134;
+            // 
+            // Localidad
+            // 
+            this.Localidad.DataPropertyName = "Localidad";
+            this.Localidad.HeaderText = "Localidad";
+            this.Localidad.Name = "Localidad";
+            this.Localidad.ReadOnly = true;
+            this.Localidad.Width = 137;
+            // 
+            // CP
+            // 
+            this.CP.DataPropertyName = "CP";
+            this.CP.HeaderText = "CP";
+            this.CP.Name = "CP";
+            this.CP.ReadOnly = true;
+            this.CP.Width = 81;
+            // 
+            // eliminarToolStripMenuItem
+            // 
+            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(239, 34);
+            this.eliminarToolStripMenuItem.Text = "Eliminar";
+            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
             // 
             // ClientesForm
             // 
@@ -472,6 +489,10 @@
             this.PerformLayout();
 
         }
+
+        
+
+
 
         #endregion
 
@@ -505,16 +526,16 @@
         private System.Windows.Forms.ToolStripMenuItem nuevoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Apellidos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NIF;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Localidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CP;
-        private System.Windows.Forms.DataGridViewLinkColumn Eliminar;
         private System.Windows.Forms.ToolStripMenuItem guardarToolStripMenuItem;
+        private DataGridViewTextBoxColumn Id;
+        private DataGridViewTextBoxColumn Nombre;
+        private DataGridViewTextBoxColumn Apellidos;
+        private DataGridViewTextBoxColumn NIF;
+        private DataGridViewTextBoxColumn Email;
+        private DataGridViewTextBoxColumn Telefono;
+        private DataGridViewTextBoxColumn Direccion;
+        private DataGridViewTextBoxColumn Localidad;
+        private DataGridViewTextBoxColumn CP;
+        private ToolStripMenuItem eliminarToolStripMenuItem;
     }
 }

@@ -8,13 +8,16 @@ namespace AppGes.Models
 {
     public class ClientItem 
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public string secondName { get; set; }
-        public string address { get; set; }  
-        public string city { get; set; }
-        public string email { get; set; }
-        public string telefono { get; set; }     
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+        public string Apellidos { get; set; }
+        public string NIF { get; set; }
+        public string Direccion { get; set; }  
+        public string Localidad { get; set; }
+        public string Email { get; set; }
+        public int Telefono { get; set; }   
+        public int CP { get; set; }      
+        public string Observaciones { get; set; }
 
     }
 

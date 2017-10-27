@@ -61,6 +61,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.salirToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -84,7 +85,8 @@
             // arvhivoToolStripMenuItem
             // 
             this.arvhivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.salirToolStripMenuItem});
+            this.salirToolStripMenuItem,
+            this.salirToolStripMenuItem1});
             this.arvhivoToolStripMenuItem.Name = "arvhivoToolStripMenuItem";
             this.arvhivoToolStripMenuItem.Size = new System.Drawing.Size(95, 34);
             this.arvhivoToolStripMenuItem.Text = "Archivo";
@@ -93,8 +95,8 @@
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(143, 34);
-            this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(239, 34);
+            this.salirToolStripMenuItem.Text = "Guardar";
             // 
             // opcionesToolStripMenuItem
             // 
@@ -107,7 +109,7 @@
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(239, 34);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(177, 34);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
@@ -180,7 +182,7 @@
             // 
             this.pictureBox1.Image = global::AppGes.Properties.Resources.lupa;
             this.pictureBox1.InitialImage = global::AppGes.Properties.Resources.lupa;
-            this.pictureBox1.Location = new System.Drawing.Point(247, 63);
+            this.pictureBox1.Location = new System.Drawing.Point(197, 19);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(31, 29);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -362,6 +364,13 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Nº Presupuesto";
             // 
+            // salirToolStripMenuItem1
+            // 
+            this.salirToolStripMenuItem1.Name = "salirToolStripMenuItem1";
+            this.salirToolStripMenuItem1.Size = new System.Drawing.Size(239, 34);
+            this.salirToolStripMenuItem1.Text = "Salir";
+            this.salirToolStripMenuItem1.Click += new System.EventHandler(this.salirToolStripMenuItem1_Click);
+            // 
             // AddTrabajos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -424,5 +433,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem1;
     }
 }
