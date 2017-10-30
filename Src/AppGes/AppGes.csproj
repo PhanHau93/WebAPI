@@ -71,18 +71,23 @@
   <ItemGroup>
     <Compile Include="Context.cs" />
     <Compile Include="Fake\ClientFake.cs" />
+    <Compile Include="Fake\TrabajosFake.cs" />
     <Compile Include="Interfaces\IServicioCliente.cs" />
+    <Compile Include="Interfaces\ITrabajos.cs" />
     <Compile Include="Model\ClientModel.cs" />
     <Compile Include="Model\EmployeeModel.cs" />
+    <Compile Include="Model\Facturas.cs" />
     <Compile Include="Model\ProviderModel.cs" />
+    <Compile Include="Model\TrabajosModel.cs" />
     <Compile Include="ObservableListSource.cs" />
     <Compile Include="Services\ServicioCliente.cs" />
+    <Compile Include="Services\TrabajosService.cs" />
     <Compile Include="Utils\Modo.cs" />
-    <Compile Include="Formularios\AddTrabajos.cs">
+    <Compile Include="Formularios\DetalleTrabajos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\AddTrabajos.Designer.cs">
-      <DependentUpon>AddTrabajos.cs</DependentUpon>
+    <Compile Include="Formularios\DetalleTrabajos.Designer.cs">
+      <DependentUpon>DetalleTrabajos.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Clientes.cs">
       <SubType>Form</SubType>
@@ -105,8 +110,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\Utilidades.cs" />
-    <EmbeddedResource Include="Formularios\AddTrabajos.resx">
-      <DependentUpon>AddTrabajos.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\DetalleTrabajos.resx">
+      <DependentUpon>DetalleTrabajos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>
@@ -144,7 +149,7 @@
   <ItemGroup>
     <None Include="Images\lupa.jpg" />
     <None Include="Images\delete1.png" />
-    <None Include="Resources\Delete.png" />
+    <None Include="Model\Resources\Delete.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Servicios\" />

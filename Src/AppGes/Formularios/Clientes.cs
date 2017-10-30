@@ -22,6 +22,7 @@ namespace AppGes.Formularios
         private Utilidades utils = new Utilidades();
         private List<ClientItem> listadoClientes;
         private IServicioCliente _servicioCliente = new AppGes.Fake.ClientFake();
+        private ITrabajos _servicioTrabajo = new AppGes.Fake.TrabajosFake();
 
         public ClientesForm()
         {
@@ -254,6 +255,12 @@ namespace AppGes.Formularios
 
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            EliminarCliente();
+        }
+
+        private void EliminarCliente()
+        {
+           
             DialogResult dr = MessageBox.Show("Va a eliminar un Cliente. ¿Desea Continuar?", "", MessageBoxButtons.OKCancel);
 
             if (dr.Equals(DialogResult.OK))
@@ -264,6 +271,12 @@ namespace AppGes.Formularios
                     var id = row[0].Cells[0].Value;
                     if (id != null)
                     {
+                        var item = _servicioTrabajo.GetByClientId(Convert.ToInt32(id));
+                        if (item.Count() > 0)
+                        {
+                            MessageBox.Show("El cliente tiene trabajos asociados, no se permite eliminarlo.");
+                            return;
+                        }
                         _servicioCliente.deleteClient(Convert.ToInt32(id));
                         listadoClientes.Remove(listadoClientes.Where(x => x.Id.Equals(id)).FirstOrDefault());
                         CargaGrid();

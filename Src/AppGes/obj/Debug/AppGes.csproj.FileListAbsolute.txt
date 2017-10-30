@@ -20,9 +20,9 @@ C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\obj\Debug\AppGes.Pr
 C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\obj\Debug\AppGes.csproj.GenerateResource.Cache
 C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\obj\Debug\AppGes.exe
 C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\obj\Debug\AppGes.pdb
-C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\obj\Debug\AppGes.Formularios.AddTrabajos.resources
 C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\obj\Debug\AppGes.Formularios.ClientesForm.resources
 C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\bin\Debug\EntityFramework.dll
 C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\bin\Debug\EntityFramework.xml
 C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\obj\Debug\AppGes.Formularios.DetalleTrabajos.resources

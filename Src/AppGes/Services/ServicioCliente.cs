@@ -17,6 +17,11 @@ namespace AppGes.Services
         }
         public void addClient(ClientItem client)
         {
+            if (_context.Clients.Count() > 0)
+                client.Id = _context.Clients.Max(x => client.Id) + 1;
+            else
+                client.Id = 1;
+
             _context.Clients.Add(client);            
         }
 
@@ -45,9 +50,10 @@ namespace AppGes.Services
         {
             var item = _context.Clients.Where(x => x.Id.Equals(client.Id)).FirstOrDefault();
 
+            _context.Clients.Remove(item);
+
             client.Id = item.Id;
 
-            _context.Clients.Remove(client);
             _context.Clients.Add(client);
         }
       

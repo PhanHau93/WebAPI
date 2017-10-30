@@ -1,4 +1,7 @@
-﻿namespace AppGes.Formularios
+﻿using System;
+using System.Windows.Forms;
+
+namespace AppGes.Formularios
 {
     partial class TrabajosForm
     {
@@ -89,12 +92,14 @@
             this.dgvTrabajos.Name = "dgvTrabajos";
             this.dgvTrabajos.ReadOnly = true;
             this.dgvTrabajos.RowTemplate.Height = 31;
+            this.dgvTrabajos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTrabajos.Size = new System.Drawing.Size(1705, 665);
             this.dgvTrabajos.TabIndex = 0;
-           
+            this.dgvTrabajos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTrabajos_CellContentDoubleClick);
             // 
             // Id
             // 
+            this.Id.DataPropertyName = "Id";
             this.Id.HeaderText = "Id";
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
@@ -102,6 +107,7 @@
             // 
             // Nombre
             // 
+            this.Nombre.DataPropertyName = "Nombre";
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.Name = "Nombre";
             this.Nombre.ReadOnly = true;
@@ -109,6 +115,7 @@
             // 
             // Apellidos
             // 
+            this.Apellidos.DataPropertyName = "Apellidos";
             this.Apellidos.HeaderText = "Apellidos";
             this.Apellidos.Name = "Apellidos";
             this.Apellidos.ReadOnly = true;
@@ -116,6 +123,7 @@
             // 
             // Fecha_Entrada
             // 
+            this.Fecha_Entrada.DataPropertyName = "Presupuesto";
             this.Fecha_Entrada.HeaderText = "Presupuesto";
             this.Fecha_Entrada.Name = "Fecha_Entrada";
             this.Fecha_Entrada.ReadOnly = true;
@@ -123,6 +131,7 @@
             // 
             // fechaEntrada
             // 
+            this.fechaEntrada.DataPropertyName = "FechaEntrada";
             this.fechaEntrada.HeaderText = "Fecha Entrada";
             this.fechaEntrada.Name = "fechaEntrada";
             this.fechaEntrada.ReadOnly = true;
@@ -130,13 +139,15 @@
             // 
             // fechaSalida
             // 
-            this.fechaSalida.HeaderText = "Fecha Salida";
+            this.fechaSalida.DataPropertyName = "FechaEntrega";
+            this.fechaSalida.HeaderText = "Fecha Entrega";
             this.fechaSalida.Name = "fechaSalida";
             this.fechaSalida.ReadOnly = true;
-            this.fechaSalida.Width = 168;
+            this.fechaSalida.Width = 181;
             // 
             // importeTotal
             // 
+            this.importeTotal.DataPropertyName = "Total";
             this.importeTotal.HeaderText = "Total";
             this.importeTotal.Name = "importeTotal";
             this.importeTotal.ReadOnly = true;
@@ -144,6 +155,7 @@
             // 
             // Cuenta
             // 
+            this.Cuenta.DataPropertyName = "Cuenta";
             this.Cuenta.HeaderText = "Cuenta";
             this.Cuenta.Name = "Cuenta";
             this.Cuenta.ReadOnly = true;
@@ -153,6 +165,7 @@
             // 
             // pendiente
             // 
+            this.pendiente.DataPropertyName = "Pendiente";
             this.pendiente.HeaderText = "Pendiente";
             this.pendiente.Name = "pendiente";
             this.pendiente.ReadOnly = true;
@@ -162,6 +175,7 @@
             // 
             // Finalizado
             // 
+            this.Finalizado.DataPropertyName = "Finalizado";
             this.Finalizado.HeaderText = "Finalizado";
             this.Finalizado.Name = "Finalizado";
             this.Finalizado.ReadOnly = true;
@@ -169,6 +183,7 @@
             // 
             // nFactura
             // 
+            this.nFactura.DataPropertyName = "Factura";
             this.nFactura.HeaderText = "Factura";
             this.nFactura.Name = "nFactura";
             this.nFactura.ReadOnly = true;
@@ -205,7 +220,7 @@
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(239, 34);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(149, 34);
             this.salirToolStripMenuItem.Text = "Salir ";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
@@ -287,19 +302,10 @@
 
         }
 
+        
+
         #endregion
         private System.Windows.Forms.DataGridView dgvTrabajos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Apellidos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha_Entrada;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaEntrada;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaSalida;
-        private System.Windows.Forms.DataGridViewTextBoxColumn importeTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cuenta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pendiente;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Finalizado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nFactura;
         private System.Windows.Forms.Button btImprimir;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -313,5 +319,16 @@
         private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem informesToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Apellidos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha_Entrada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaEntrada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaSalida;
+        private System.Windows.Forms.DataGridViewTextBoxColumn importeTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cuenta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pendiente;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Finalizado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nFactura;
     }
 }

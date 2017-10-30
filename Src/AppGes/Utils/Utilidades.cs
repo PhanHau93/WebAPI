@@ -29,18 +29,22 @@ namespace AppGes.Utils
                                 {
 
                                 }
-                                if (c3 is TextBox)
+                                if (c3 is TextBox || c3 is DateTimePicker || c3 is CheckBox)
+                                {
                                     c3.Enabled = habilitar;
+                                }
+
+
                             }
                         }
-                        if (c2 is TextBox)
+                        if (c2 is TextBox || c2 is DateTimePicker || c2 is CheckBox)
                             c2.Enabled = habilitar;
                     }
-                        if (c is TextBox)
-                            c.Enabled = habilitar;
-                    }
-                
-                else if (c is TextBox)
+                    if (c is TextBox || c is DateTimePicker || c is CheckBox)
+                        c.Enabled = habilitar;
+                }
+
+                else if (c is TextBox || c is DateTimePicker || c is CheckBox)
                     c.Enabled = habilitar;
             }
         }
@@ -207,7 +211,7 @@ namespace AppGes.Utils
         private bool CadenaEsNumero(string aux)
         {
             int result;
-            return int.TryParse(aux, out result);           
+            return int.TryParse(aux, out result);
         }
 
         /// <summary>

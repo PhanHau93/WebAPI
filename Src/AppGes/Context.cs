@@ -1,4 +1,5 @@
-﻿using AppGes.Models;
+﻿
+using AppGes.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -13,5 +14,6 @@ namespace AppGes
         public DbSet<ClientItem> Clients { get; set; }
         public DbSet<EmployeeItem> Employes { get; set; }
         public DbSet<ProviderItem> Providers { get; set; }
+        public DbSet<TrabajoItem> Trabajos { get; set; }
     }
 }
