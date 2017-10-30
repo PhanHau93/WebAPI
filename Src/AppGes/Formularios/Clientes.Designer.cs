@@ -52,6 +52,15 @@ namespace AppGes.Formularios
             this.lbId = new System.Windows.Forms.Label();
             this.tbClienteId = new System.Windows.Forms.TextBox();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NIF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Localidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.lbObservaciones = new System.Windows.Forms.Label();
             this.tbObservaciones = new System.Windows.Forms.TextBox();
@@ -62,17 +71,9 @@ namespace AppGes.Formularios
             this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NIF = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Localidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.cancelarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
@@ -85,7 +86,7 @@ namespace AppGes.Formularios
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.95811F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.04189F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 143F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 569F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 570F));
             this.tableLayoutPanel1.Controls.Add(this.lbName, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tbNombre, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.lbApellidos, 0, 1);
@@ -126,7 +127,7 @@ namespace AppGes.Formularios
             // 
             this.tbNombre.Location = new System.Drawing.Point(146, 3);
             this.tbNombre.Name = "tbNombre";
-            this.tbNombre.Size = new System.Drawing.Size(384, 29);
+            this.tbNombre.Size = new System.Drawing.Size(383, 29);
             this.tbNombre.TabIndex = 3;
             // 
             // lbApellidos
@@ -142,7 +143,7 @@ namespace AppGes.Formularios
             // 
             this.tbApellidos.Location = new System.Drawing.Point(146, 49);
             this.tbApellidos.Name = "tbApellidos";
-            this.tbApellidos.Size = new System.Drawing.Size(384, 29);
+            this.tbApellidos.Size = new System.Drawing.Size(383, 29);
             this.tbApellidos.TabIndex = 5;
             // 
             // lbEmail
@@ -158,7 +159,7 @@ namespace AppGes.Formularios
             // 
             this.tbEmail.Location = new System.Drawing.Point(146, 95);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(384, 29);
+            this.tbEmail.Size = new System.Drawing.Size(383, 29);
             this.tbEmail.TabIndex = 12;
             // 
             // lbTelefono
@@ -174,13 +175,13 @@ namespace AppGes.Formularios
             // 
             this.tbTelefono.Location = new System.Drawing.Point(146, 143);
             this.tbTelefono.Name = "tbTelefono";
-            this.tbTelefono.Size = new System.Drawing.Size(384, 29);
+            this.tbTelefono.Size = new System.Drawing.Size(383, 29);
             this.tbTelefono.TabIndex = 10;
             // 
             // lbLocalidad
             // 
             this.lbLocalidad.AutoSize = true;
-            this.lbLocalidad.Location = new System.Drawing.Point(536, 92);
+            this.lbLocalidad.Location = new System.Drawing.Point(535, 92);
             this.lbLocalidad.Name = "lbLocalidad";
             this.lbLocalidad.Size = new System.Drawing.Size(96, 25);
             this.lbLocalidad.TabIndex = 7;
@@ -188,7 +189,7 @@ namespace AppGes.Formularios
             // 
             // tbLocalidad
             // 
-            this.tbLocalidad.Location = new System.Drawing.Point(679, 95);
+            this.tbLocalidad.Location = new System.Drawing.Point(678, 95);
             this.tbLocalidad.Name = "tbLocalidad";
             this.tbLocalidad.Size = new System.Drawing.Size(548, 29);
             this.tbLocalidad.TabIndex = 1;
@@ -196,7 +197,7 @@ namespace AppGes.Formularios
             // lbDireccion
             // 
             this.lbDireccion.AutoSize = true;
-            this.lbDireccion.Location = new System.Drawing.Point(536, 46);
+            this.lbDireccion.Location = new System.Drawing.Point(535, 46);
             this.lbDireccion.Name = "lbDireccion";
             this.lbDireccion.Size = new System.Drawing.Size(93, 25);
             this.lbDireccion.TabIndex = 6;
@@ -204,7 +205,7 @@ namespace AppGes.Formularios
             // 
             // tbDireccion
             // 
-            this.tbDireccion.Location = new System.Drawing.Point(679, 49);
+            this.tbDireccion.Location = new System.Drawing.Point(678, 49);
             this.tbDireccion.Name = "tbDireccion";
             this.tbDireccion.Size = new System.Drawing.Size(548, 29);
             this.tbDireccion.TabIndex = 9;
@@ -212,7 +213,7 @@ namespace AppGes.Formularios
             // lbNif
             // 
             this.lbNif.AutoSize = true;
-            this.lbNif.Location = new System.Drawing.Point(536, 0);
+            this.lbNif.Location = new System.Drawing.Point(535, 0);
             this.lbNif.Name = "lbNif";
             this.lbNif.Size = new System.Drawing.Size(43, 25);
             this.lbNif.TabIndex = 13;
@@ -221,7 +222,7 @@ namespace AppGes.Formularios
             // lbCP
             // 
             this.lbCP.AutoSize = true;
-            this.lbCP.Location = new System.Drawing.Point(536, 140);
+            this.lbCP.Location = new System.Drawing.Point(535, 140);
             this.lbCP.Name = "lbCP";
             this.lbCP.Size = new System.Drawing.Size(45, 25);
             this.lbCP.TabIndex = 14;
@@ -229,14 +230,14 @@ namespace AppGes.Formularios
             // 
             // tbCP
             // 
-            this.tbCP.Location = new System.Drawing.Point(679, 143);
+            this.tbCP.Location = new System.Drawing.Point(678, 143);
             this.tbCP.Name = "tbCP";
             this.tbCP.Size = new System.Drawing.Size(100, 29);
             this.tbCP.TabIndex = 16;
             // 
             // tbNif
             // 
-            this.tbNif.Location = new System.Drawing.Point(679, 3);
+            this.tbNif.Location = new System.Drawing.Point(678, 3);
             this.tbNif.Name = "tbNif";
             this.tbNif.Size = new System.Drawing.Size(100, 29);
             this.tbNif.TabIndex = 15;
@@ -283,106 +284,6 @@ namespace AppGes.Formularios
             this.dgvClientes.Size = new System.Drawing.Size(1246, 263);
             this.dgvClientes.TabIndex = 2;
             this.dgvClientes.SelectionChanged += new System.EventHandler(this.dgvClientes_SelectionChanged);
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.06478F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87.93523F));
-            this.tableLayoutPanel3.Controls.Add(this.lbObservaciones, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.tbObservaciones, 1, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(9, 358);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1246, 150);
-            this.tableLayoutPanel3.TabIndex = 4;
-            // 
-            // lbObservaciones
-            // 
-            this.lbObservaciones.AutoSize = true;
-            this.lbObservaciones.Location = new System.Drawing.Point(3, 0);
-            this.lbObservaciones.Name = "lbObservaciones";
-            this.lbObservaciones.Size = new System.Drawing.Size(144, 25);
-            this.lbObservaciones.TabIndex = 0;
-            this.lbObservaciones.Text = "Observaciones";
-            // 
-            // tbObservaciones
-            // 
-            this.tbObservaciones.Location = new System.Drawing.Point(153, 3);
-            this.tbObservaciones.Multiline = true;
-            this.tbObservaciones.Name = "tbObservaciones";
-            this.tbObservaciones.Size = new System.Drawing.Size(1090, 140);
-            this.tbObservaciones.TabIndex = 1;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(28, 28);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.archivoToolStripMenuItem,
-            this.opcionesToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1290, 38);
-            this.menuStrip1.TabIndex = 5;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // archivoToolStripMenuItem
-            // 
-            this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.salirToolStripMenuItem,
-            this.guardarToolStripMenuItem});
-            this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(95, 34);
-            this.archivoToolStripMenuItem.Text = "Archivo";
-            // 
-            // salirToolStripMenuItem
-            // 
-            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(239, 34);
-            this.salirToolStripMenuItem.Text = "Guardar";
-            this.salirToolStripMenuItem.Click += new System.EventHandler(this.guardarToolStripMenuItem_Click);
-            // 
-            // guardarToolStripMenuItem
-            // 
-            this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(239, 34);
-            this.guardarToolStripMenuItem.Text = "Salir";
-            this.guardarToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
-            // 
-            // opcionesToolStripMenuItem
-            // 
-            this.opcionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nuevoToolStripMenuItem,
-            this.editarToolStripMenuItem,
-            this.eliminarToolStripMenuItem});
-            this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
-            this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(112, 34);
-            this.opcionesToolStripMenuItem.Text = "Opciones";
-            // 
-            // nuevoToolStripMenuItem
-            // 
-            this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(165, 34);
-            this.nuevoToolStripMenuItem.Text = "Nuevo";
-            this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click);
-            // 
-            // editarToolStripMenuItem
-            // 
-            this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(165, 34);
-            this.editarToolStripMenuItem.Text = "Editar";
-            this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "Eliminar";
-            this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.ToolTipText = "Eliminar";
-            this.dataGridViewImageColumn1.Width = 87;
             // 
             // Id
             // 
@@ -456,12 +357,120 @@ namespace AppGes.Formularios
             this.CP.ReadOnly = true;
             this.CP.Width = 81;
             // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.06478F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87.93523F));
+            this.tableLayoutPanel3.Controls.Add(this.lbObservaciones, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.tbObservaciones, 1, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(9, 358);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1246, 150);
+            this.tableLayoutPanel3.TabIndex = 4;
+            // 
+            // lbObservaciones
+            // 
+            this.lbObservaciones.AutoSize = true;
+            this.lbObservaciones.Location = new System.Drawing.Point(3, 0);
+            this.lbObservaciones.Name = "lbObservaciones";
+            this.lbObservaciones.Size = new System.Drawing.Size(144, 25);
+            this.lbObservaciones.TabIndex = 0;
+            this.lbObservaciones.Text = "Observaciones";
+            // 
+            // tbObservaciones
+            // 
+            this.tbObservaciones.Location = new System.Drawing.Point(153, 3);
+            this.tbObservaciones.Multiline = true;
+            this.tbObservaciones.Name = "tbObservaciones";
+            this.tbObservaciones.Size = new System.Drawing.Size(1090, 140);
+            this.tbObservaciones.TabIndex = 1;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(28, 28);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.archivoToolStripMenuItem,
+            this.opcionesToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1290, 38);
+            this.menuStrip1.TabIndex = 5;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // archivoToolStripMenuItem
+            // 
+            this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.salirToolStripMenuItem,
+            this.guardarToolStripMenuItem});
+            this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(95, 34);
+            this.archivoToolStripMenuItem.Text = "Archivo";
+            // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(178, 34);
+            this.salirToolStripMenuItem.Text = "Guardar";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.guardarToolStripMenuItem_Click);
+            // 
+            // guardarToolStripMenuItem
+            // 
+            this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
+            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(178, 34);
+            this.guardarToolStripMenuItem.Text = "Salir";
+            this.guardarToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
+            // 
+            // opcionesToolStripMenuItem
+            // 
+            this.opcionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nuevoToolStripMenuItem,
+            this.editarToolStripMenuItem,
+            this.eliminarToolStripMenuItem,
+            this.cancelarToolStripMenuItem});
+            this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
+            this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(112, 34);
+            this.opcionesToolStripMenuItem.Text = "Opciones";
+            // 
+            // nuevoToolStripMenuItem
+            // 
+            this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
+            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(239, 34);
+            this.nuevoToolStripMenuItem.Text = "Nuevo";
+            this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click);
+            // 
+            // editarToolStripMenuItem
+            // 
+            this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(239, 34);
+            this.editarToolStripMenuItem.Text = "Editar";
+            this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
+            // 
             // eliminarToolStripMenuItem
             // 
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
             this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(239, 34);
             this.eliminarToolStripMenuItem.Text = "Eliminar";
             this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "Eliminar";
+            this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.ToolTipText = "Eliminar";
+            this.dataGridViewImageColumn1.Width = 87;
+            // 
+            // cancelarToolStripMenuItem
+            // 
+            this.cancelarToolStripMenuItem.Name = "cancelarToolStripMenuItem";
+            this.cancelarToolStripMenuItem.Size = new System.Drawing.Size(239, 34);
+            this.cancelarToolStripMenuItem.Text = "Cancelar";
+            this.cancelarToolStripMenuItem.Click += new System.EventHandler(this.cancelarToolStripMenuItem_Click);
             // 
             // ClientesForm
             // 
@@ -537,5 +546,6 @@ namespace AppGes.Formularios
         private DataGridViewTextBoxColumn Localidad;
         private DataGridViewTextBoxColumn CP;
         private ToolStripMenuItem eliminarToolStripMenuItem;
+        private ToolStripMenuItem cancelarToolStripMenuItem;
     }
 }

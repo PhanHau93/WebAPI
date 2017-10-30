@@ -43,6 +43,7 @@ namespace AppGes.Formularios
 
         private void Clientes_Load(object sender, EventArgs e)
         {
+           
             CargaFormularioClientes();
 
         }
@@ -55,6 +56,8 @@ namespace AppGes.Formularios
 
             editarToolStripMenuItem.Enabled = true;
             nuevoToolStripMenuItem.Enabled = true;
+            eliminarToolStripMenuItem.Enabled = true;
+            cancelarToolStripMenuItem.Enabled = false;
             dgvClientes.Enabled = true;
 
             if (modoApertura.Equals(Modo.edicion))
@@ -188,6 +191,11 @@ namespace AppGes.Formularios
 
         private void dgvClientes_SelectionChanged(object sender, EventArgs e)
         {
+            CargarClienteGrid();
+        }
+
+        private void CargarClienteGrid()
+        {
             if (modoApertura != Modo.nuevo)
             {
                 var row = dgvClientes.SelectedRows;
@@ -213,6 +221,8 @@ namespace AppGes.Formularios
 
             editarToolStripMenuItem.Enabled = false;
             nuevoToolStripMenuItem.Enabled = false;
+            eliminarToolStripMenuItem.Enabled = false;
+            cancelarToolStripMenuItem.Enabled = true;
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -238,6 +248,8 @@ namespace AppGes.Formularios
 
             editarToolStripMenuItem.Enabled = false;
             nuevoToolStripMenuItem.Enabled = false;
+            eliminarToolStripMenuItem.Enabled = false;
+            cancelarToolStripMenuItem.Enabled = true;
         }
 
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -260,5 +272,12 @@ namespace AppGes.Formularios
             }
         }
 
+        private void cancelarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+            this.modoApertura = Modo.consulta;
+            CargaFormularioClientes();
+            CargarClienteGrid();
+        }
     }
 }
