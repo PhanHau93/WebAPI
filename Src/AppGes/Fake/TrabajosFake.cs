@@ -13,10 +13,11 @@ namespace AppGes.Fake
     public class TrabajosFake : ITrabajos
     {
         //private Context _context = new Context();
-        private List<TrabajoItem> trabajos = new List<TrabajoItem>();
+        private List<TrabajoItem> trabajos;
 
         public TrabajosFake()
         {
+            trabajos = new List<TrabajoItem>();
             string json = new StreamReader("trabajos.json").ReadToEnd();
             trabajos = JsonConvert.DeserializeObject<List<TrabajoItem>>(json);
         }
@@ -28,6 +29,7 @@ namespace AppGes.Fake
                 trabajo.Id = 1;
 
             trabajos.Add(trabajo);
+
         }
 
         public void Delete(int id)

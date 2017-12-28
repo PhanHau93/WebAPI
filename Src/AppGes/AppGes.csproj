@@ -77,7 +77,6 @@
     <Compile Include="Model\ClientModel.cs" />
     <Compile Include="Model\EmployeeModel.cs" />
     <Compile Include="Model\Facturas.cs" />
-    <Compile Include="Model\ProviderModel.cs" />
     <Compile Include="Model\TrabajosModel.cs" />
     <Compile Include="ObservableListSource.cs" />
     <Compile Include="Services\ServicioCliente.cs" />

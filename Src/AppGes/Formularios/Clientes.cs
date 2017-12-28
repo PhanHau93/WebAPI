@@ -19,10 +19,13 @@ namespace AppGes.Formularios
     {
         private int modoApertura { get; set; }
         private int idCliente { get; set; }
+
+        public ClientItem clienteBusqueda { get; set; }
+
         private Utilidades utils = new Utilidades();
         private List<ClientItem> listadoClientes;
-        private IServicioCliente _servicioCliente = new AppGes.Fake.ClientFake();
-        private ITrabajos _servicioTrabajo = new AppGes.Fake.TrabajosFake();
+        private IServicioCliente _servicioCliente = new AppGes.Services.ServicioCliente();
+        private ITrabajos _servicioTrabajo = new AppGes.Services.TrabajosService();
 
         public ClientesForm()
         {
@@ -33,13 +36,18 @@ namespace AppGes.Formularios
             CargaGrid();
         }
 
-        public ClientesForm(int id, bool editar) //Editar
+        public ClientesForm(int id, bool busqueda) //Editar
         {
-            this.modoApertura = Modo.consulta;
+            if (busqueda)
+                this.modoApertura = Modo.busqueda;
+            else
+                this.modoApertura = Modo.consulta;
+
             this.idCliente = id;
             InitializeComponent();
 
             CargaGrid();
+            CargaFormularioClientes();
         }
 
         private void Clientes_Load(object sender, EventArgs e)
@@ -71,6 +79,16 @@ namespace AppGes.Formularios
                 utils.HabilitarDeshabilitarTextBox(this.Controls, false);
                 if (idCliente > 0)
                     cargarClientePorId(idCliente);
+
+                if (modoApertura.Equals(Modo.busqueda))
+                {
+                    editarToolStripMenuItem.Enabled = false;
+                    nuevoToolStripMenuItem.Enabled = false;
+                    eliminarToolStripMenuItem.Enabled = false;
+                    cancelarToolStripMenuItem.Enabled = false;
+                    guardarToolStripMenuItem.Enabled = true;
+                    salirToolStripMenuItem.Enabled = false;
+                }
 
             }
 
@@ -291,6 +309,25 @@ namespace AppGes.Formularios
             this.modoApertura = Modo.consulta;
             CargaFormularioClientes();
             CargarClienteGrid();
+        }
+
+        private void dgvClientes_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            clienteBusqueda = new ClientItem();
+
+            var row = dgvClientes.SelectedRows;
+            if (row != null && row.Count > 0)
+            {
+                var id = row[0].Cells[0].Value;
+                if (id != null)
+                {
+                    var item = _servicioCliente.getClientById(Convert.ToInt32(id));
+
+                    clienteBusqueda = item;
+
+                    this.Close();
+                }
+            }
         }
     }
 }

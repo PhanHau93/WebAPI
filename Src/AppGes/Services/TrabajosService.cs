@@ -24,6 +24,8 @@ namespace AppGes.Services
                 trabajo.Id = 1;
 
             _context.Trabajos.Add(trabajo);
+
+            _context.SaveChanges();
         }
 
         public void Delete(int id)
@@ -32,6 +34,8 @@ namespace AppGes.Services
 
             if (item != null)
                 _context.Trabajos.Remove(item);
+
+            _context.SaveChanges();
         }
 
         public IEnumerable<TrabajoItem> Get()
@@ -58,6 +62,9 @@ namespace AppGes.Services
             trabajo.Id = item.Id;
 
             _context.Trabajos.Add(trabajo);
+
+            
+            _context.SaveChanges();
         }
     }
 }

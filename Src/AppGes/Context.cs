@@ -13,7 +13,7 @@ namespace AppGes
     {
         public DbSet<ClientItem> Clients { get; set; }
         public DbSet<EmployeeItem> Employes { get; set; }
-        public DbSet<ProviderItem> Providers { get; set; }
+       // public DbSet<ProviderItem> Providers { get; set; }
         public DbSet<TrabajoItem> Trabajos { get; set; }
     }
 }

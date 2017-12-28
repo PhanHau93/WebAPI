@@ -11,5 +11,6 @@ namespace AppGes.Enumerados
         public const int nuevo = 0;
         public const int edicion = 1;
         public const int consulta = 2;
+        public const int busqueda = 3;
     }
 }

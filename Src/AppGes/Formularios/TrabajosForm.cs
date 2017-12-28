@@ -15,7 +15,7 @@ namespace AppGes.Formularios
 {
     public partial class TrabajosForm : Form
     {
-        private ITrabajos _servicioTrabajos = new TrabajosFake();
+        private ITrabajos _servicioTrabajos = new AppGes.Services.TrabajosService();
         public TrabajosForm()
         {
             InitializeComponent();
@@ -59,6 +59,10 @@ namespace AppGes.Formularios
         {
             DetalleTrabajos addTrabajos = new DetalleTrabajos();
             addTrabajos.ShowDialog();
+            if (addTrabajos.facturaModificada)
+            {
+                CargarGridTrabajos();
+            }
         }
 
         private void consultarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -76,6 +80,10 @@ namespace AppGes.Formularios
                 {
                     DetalleTrabajos addTrabajos = new DetalleTrabajos(Convert.ToInt32(id), true);
                     addTrabajos.ShowDialog();
+                    if (addTrabajos.facturaModificada)
+                    {
+                        CargarGridTrabajos();
+                    }
                 }
             }
 
@@ -84,10 +92,23 @@ namespace AppGes.Formularios
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int id = 0;
-            DetalleTrabajos addTrabajos = new DetalleTrabajos(id, false);
-            
-            addTrabajos.ShowDialog();
+
+            var row = dgvTrabajos.SelectedRows;
+            if (row != null && row.Count > 0)
+            {
+                var id = row[0].Cells[0].Value;
+                if (id != null)
+                {
+
+
+                    DetalleTrabajos addTrabajos = new DetalleTrabajos(Convert.ToInt32(id), false);
+
+                    addTrabajos.ShowDialog();
+
+                    if (addTrabajos.facturaModificada)
+                        CargarGridTrabajos();
+                }
+            }
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)

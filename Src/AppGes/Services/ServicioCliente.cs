@@ -22,7 +22,9 @@ namespace AppGes.Services
             else
                 client.Id = 1;
 
-            _context.Clients.Add(client);            
+            var item = _context.Clients.Add(client);
+
+            _context.SaveChanges();
         }
 
         public void deleteClient(int id)
@@ -31,6 +33,8 @@ namespace AppGes.Services
 
            if(item != null)
                 _context.Clients.Remove(item);
+
+            _context.SaveChanges();
         }
 
         public IEnumerable<ClientItem> getClient()
@@ -55,6 +59,9 @@ namespace AppGes.Services
             client.Id = item.Id;
 
             _context.Clients.Add(client);
+
+            _context.SaveChanges();
+
         }
       
     }

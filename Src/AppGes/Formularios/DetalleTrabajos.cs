@@ -19,11 +19,14 @@ namespace AppGes.Formularios
     {
         private int ModoApertura { get; set; }
         private int ModoFactura { get; set; }
+        public bool facturaModificada = false;
         private Utilidades utils = new Utilidades();
-        private ITrabajos _servicioTrabajo = new TrabajosFake();
-        private TrabajoItem _item;
+        private ITrabajos _servicioTrabajo = new AppGes.Services.TrabajosService();
+        private IServicioCliente _servicioCliente = new AppGes.Services.ServicioCliente();
+        private TrabajoItem _item = new TrabajoItem();
+        private ClientItem _client;
 
-       
+
         public DetalleTrabajos() //Nuevo
         {
             //this.ModoApertura = Convert.ToInt32(Modo.nuevo);
@@ -42,15 +45,21 @@ namespace AppGes.Formularios
             {
                 CargaModoConsulta(id);
             }
-            
+            else
+            {
+                CargaModoConsulta(id);
+                EditarTrabajo();
+            }
+
 
         }
 
         private void CargaModoConsulta(int id)
         {
-            utils.HabilitarDeshabilitarTextBox(this.Controls, false);            
+            utils.HabilitarDeshabilitarTextBox(this.Controls, false);
             CargarDatosPorId(id);
             panelFacturas.Enabled = false;
+            panelCliente.Enabled = false;
         }
 
         private void CargarDatosPorId(int id)
@@ -58,6 +67,7 @@ namespace AppGes.Formularios
             var trabajo = _servicioTrabajo.Get(id);
             if (trabajo != null)
             {
+                
                 tbApellidos.Text = trabajo.Cliente.Apellidos;
                 tbClientId.Text = trabajo.Cliente.Id.ToString();
                 tbNombre.Text = trabajo.Cliente.Nombre;
@@ -66,33 +76,46 @@ namespace AppGes.Formularios
                 chkFinalizado.Checked = trabajo.Finalizado;
 
                 if (trabajo.FechaEntrada.HasValue)
+                {
                     dtpFechaEntrada.Value = trabajo.FechaEntrada.Value;
+                    dtpFechaEntrada.Checked = true;
+                }
                 else
                     dtpFechaEntrada.Visible = false;
 
                 if (trabajo.FechaEntrega.HasValue)
+                {
                     dtpFechaEntrega.Value = trabajo.FechaEntrega.Value;
+                    dtpFechaEntrada.Checked = true;
+                }
                 else
                     dtpFechaEntrega.Visible = false;
 
                 if (trabajo.FechaReal.HasValue)
+                {
                     dtpFechaReal.Value = trabajo.FechaReal.Value;
+                    dtpFechaReal.Checked = true;
+                }
                 else
                     dtpFechaReal.Visible = false;
 
                 tbObservaciones.Text = trabajo.Observaciones;
 
                 this._item = trabajo;
+                this._client = trabajo.Cliente;
 
-                if (trabajo.Facturas != null)
+                if (trabajo.Facturas != null && trabajo.Facturas.Count > 0)
                 {
+                    dgvFacturas.DataSource = null;
+                    dgvFacturas.Update();
                     dgvFacturas.DataSource = trabajo.Facturas;
+                    dgvFacturas.Update();
                     LimpiarSelecionGridFacturas();
                 }
 
                 FacturasChanged();
 
-              
+
             }
 
 
@@ -103,7 +126,7 @@ namespace AppGes.Formularios
             this.Width = 800;
             this.Height = 500;
             panelFacturas.BorderStyle = BorderStyle.FixedSingle;
-            
+
         }
 
         private void arvhivoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -113,8 +136,23 @@ namespace AppGes.Formularios
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            ClientesForm clientesForm = new ClientesForm(-1, false);
-            clientesForm.Show();
+            ClientesForm clientesForm = new ClientesForm(-1, true);
+            clientesForm.ShowDialog();
+
+            if (clientesForm.clienteBusqueda != null)
+            {
+                var client = clientesForm.clienteBusqueda;
+                CargaCliente(client);
+                _client = client;
+            }
+        }
+
+        private void CargaCliente(ClientItem client)
+        {
+            tbClientId.Text = client.Id.ToString();
+            tbNombre.Text = client.Nombre;
+            tbApellidos.Text = client.Apellidos;
+            tbNif.Text = client.NIF;
         }
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -143,13 +181,21 @@ namespace AppGes.Formularios
                 dtpFechaReal.Visible = true;
                 dgvFacturas.Enabled = true;
                 panelFacturas.Enabled = true;
+                editarToolStripMenuItem.Enabled = false;
             }
-            
+
         }
 
         private void salirToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            //Preguntar por cambios            
+            if (ModoApertura.Equals(Modo.nuevo) || ModoApertura.Equals(Modo.edicion))
+            {
+                DialogResult dr = MessageBox.Show("Existen Cambios Sin Guardar. ¿Desea Salir?", "", MessageBoxButtons.OKCancel);
+                if (dr.Equals(DialogResult.OK))
+                    this.Close();
+                return;
+            }
+
             this.Close();
         }
 
@@ -185,12 +231,18 @@ namespace AppGes.Formularios
 
         private void btNuevaFac_Click(object sender, EventArgs e)
         {
+            HabilitarNuevaFactura();
+
+        }
+
+        private void HabilitarNuevaFactura()
+        {
             this.ModoFactura = Modo.nuevo;
 
             btEditarFac.Enabled = false;
             btEliminarFac.Enabled = false;
             btGuardarFac.Enabled = true;
-            
+
             tbCuenta.Text = string.Empty;
             tbCuenta.Enabled = true;
             tbTotal.Text = string.Empty;
@@ -199,7 +251,7 @@ namespace AppGes.Formularios
             tbNumeroFactura.Text = string.Empty;
             tbResto.Text = string.Empty;
 
-            
+            tbNumeroFactura.Focus();
         }
 
         private void btEditarFac_Click(object sender, EventArgs e)
@@ -210,7 +262,7 @@ namespace AppGes.Formularios
             btGuardarFac.Enabled = true;
             tbCuenta.Enabled = true;
             tbTotal.Enabled = true;
-            tbNumeroFactura.Enabled = true;          
+            tbNumeroFactura.Enabled = true;
 
         }
 
@@ -223,7 +275,7 @@ namespace AppGes.Formularios
                 var id = row[0].Cells[0].Value;
                 if (id != null)
                 {
-                    var facturaEliminar = this._item.Facturas.Where(x => x.id.Equals(id)).FirstOrDefault();
+                    var facturaEliminar = this._item.Facturas.Where(x => x.Id.Equals(id)).FirstOrDefault();
                     _item.Facturas.Remove(facturaEliminar);
                     if (_item.Facturas.Count > 0)
                         dgvFacturas.DataSource = _item.Facturas;
@@ -315,11 +367,16 @@ namespace AppGes.Formularios
                 Factura factura;
                 if (ModoFactura.Equals(Modo.nuevo))
                 {
-                    int id = _item.Facturas.Count() > 0 ?_item.Facturas.Max(x => x.id) + 1:1;
-                    factura = new Factura() {NFactura = Convert.ToInt32(tbNumeroFactura.Text),
-                        id =id,
-                    Cuenta = Convert.ToDecimal(tbCuenta.Text),
-                    Importe = Convert.ToDecimal(tbTotal.Text)
+                    if (_item.Facturas == null)
+                        _item.Facturas = new List<Factura>();
+
+                    int id = _item.Facturas.Count() > 0 ? _item.Facturas.Max(x => x.Id) + 1 : 1;
+                    factura = new Factura()
+                    {
+                        NFactura = Convert.ToInt32(tbNumeroFactura.Text),
+                        Id = id,
+                        Cuenta = Convert.ToDecimal(tbCuenta.Text),
+                        Importe = Convert.ToDecimal(tbTotal.Text)
                     };
 
                     _item.Facturas.Add(factura);
@@ -332,7 +389,7 @@ namespace AppGes.Formularios
                         var id = row[0].Cells[0].Value;
                         if (id != null)
                         {
-                            var facturaEditar = this._item.Facturas.Where(x => x.id.Equals(id)).FirstOrDefault();
+                            var facturaEditar = this._item.Facturas.Where(x => x.Id.Equals(id)).FirstOrDefault();
                             this._item.Facturas.Remove(facturaEditar);
 
                             facturaEditar.NFactura = Convert.ToInt32(tbNumeroFactura.Text);
@@ -344,7 +401,7 @@ namespace AppGes.Formularios
                             else
                                 dgvFacturas.DataSource = null;
 
-                           
+
                         }
                     }
                 }
@@ -360,9 +417,10 @@ namespace AppGes.Formularios
                 btGuardarFac.Enabled = false;
 
                 utils.HabilitarDeshabilitarTextBox(panelFacturas.Controls, false);
+                this.ModoFactura = Modo.consulta;
 
             }
-            this.ModoFactura = Modo.consulta;
+           
         }
 
         private bool validaFactura()
@@ -371,7 +429,7 @@ namespace AppGes.Formularios
             TextBox enfocar = new TextBox();
             if (string.IsNullOrEmpty(tbNumeroFactura.Text))
             {
-                enfocar=tbNumeroFactura;
+                enfocar = tbNumeroFactura;
                 mensaje = true;
             }
             else if (string.IsNullOrEmpty(tbTotal.Text))
@@ -383,7 +441,7 @@ namespace AppGes.Formularios
             {
                 enfocar = tbCuenta;
                 mensaje = true;
-               
+
             }
             if (mensaje)
             {
@@ -392,6 +450,142 @@ namespace AppGes.Formularios
                 return !mensaje;
             }
             return !mensaje;
+        }
+
+        private void tbClientId_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(tbClientId.Text))
+            {
+                int id;
+                Int32.TryParse(tbClientId.Text, out id);
+
+                if (id > 0)
+                {
+                    var item = _servicioCliente.getClientById(id);
+                    if (item != null)
+                    {
+                        CargaCliente(item);
+                        _client = item;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cliente No Encontrado");
+                        utils.LimpiarTextBox(panelCliente.Controls);
+                        _client = null;
+                        tbClientId.Focus();
+                    }
+
+                }
+            }
+
+        }
+
+        private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!ModoApertura.Equals(Modo.consulta))
+            {
+                if (ValidarGuardarFactura())
+                {
+                    if (ModoApertura.Equals(Modo.nuevo))
+                    {
+                        _servicioTrabajo.Add(_item);
+                    }
+                    else
+                    {
+                        _servicioTrabajo.Update(_item);
+                    }
+                    MessageBox.Show("Factura Guardada");
+                    facturaModificada = true;
+                    this.Close();
+                    return;
+                }
+            }
+            facturaModificada = false;
+
+        }
+
+        private bool ValidarGuardarFactura()
+        {
+            if (_client == null)
+            {
+                MessageBox.Show("Datos de Cliente Obligatorio");
+                if (tbClientId.CanFocus)
+                    tbClientId.Focus();
+                return false;
+            }
+            else
+            {
+                //_item.Cliente = _client;
+                _item.clienteID = _client.Id;
+
+            }
+
+
+            if (string.IsNullOrEmpty(tbPresupuesto.Text))
+            {
+                MessageBox.Show("Número de presupuesto Obligatoio");
+                if (tbPresupuesto.CanFocus)
+                    tbPresupuesto.Focus();
+                return false;
+            }
+            else
+            {
+                int id;
+                int.TryParse(tbPresupuesto.Text, out id);
+                if (id > 0)
+                    _item.NPresupuesto = Convert.ToInt32(tbPresupuesto.Text);
+                else
+                {
+                        MessageBox.Show("Formatio incorrecto");
+                    tbPresupuesto.Text = string.Empty;
+                    if (tbPresupuesto.CanFocus)
+                        tbPresupuesto.Focus();
+                }
+
+
+            }
+
+            _item.Observaciones = tbObservaciones.Text;
+            if (!dtpFechaEntrega.Checked)
+            {
+                MessageBox.Show("Fecha de entrega Obligatoria");
+                if (dtpFechaEntrega.CanFocus)
+                    dtpFechaEntrega.Focus();
+                return false;
+            }
+            else
+            {
+                _item.FechaEntrada = dtpFechaEntrega.Value;
+            }
+            if (!dtpFechaEntrada.Checked)
+            {
+                MessageBox.Show("Fecha de entrada Obligatoria");
+                if (dtpFechaEntrada.CanFocus)
+                    dtpFechaEntrada.Focus();
+                return false;
+            }
+            else
+            {
+                _item.FechaEntrada = dtpFechaEntrada.Value;
+            }
+
+           
+
+            if (dtpFechaReal.Checked)
+            {
+                _item.FechaReal = dtpFechaReal.Value;
+            }
+
+            _item.Finalizado = chkFinalizado.Checked;
+
+            if (_item.Facturas == null || _item.Facturas.Equals(0))
+            {
+                MessageBox.Show("Obligatorio Introducir Facturas asociadas");
+                HabilitarNuevaFactura();
+                return false;
+            }
+
+            return true;
         }
     }
 }

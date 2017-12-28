@@ -46,7 +46,7 @@ namespace AppGes
                 foreach (ClientItem c in _clientes)
                 {
                     List<Factura> facturas = new List<Factura>();
-                    facturas.Add(new Factura() { id = id, Cuenta = 100, Importe = 150, NFactura = 1309844 });
+                    facturas.Add(new Factura() { Id = id, Cuenta = 100, Importe = 150, NFactura = 1309844 });
                     _trabajos.Add(new TrabajoItem()
                     {
                         Cliente = c,

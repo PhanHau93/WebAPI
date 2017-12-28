@@ -1,6 +1,8 @@
 ﻿using AppGes.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,14 +12,23 @@ namespace AppGes.Models
     public class TrabajoItem
     {
         public int Id { get; set; }
-        public ClientItem Cliente { get; set; }
+
+        [ ForeignKey("Facturas")]
+        public int facturaID { get; set; }
+        [ ForeignKey("Cliente")]
+        public int clienteID { get; set; }
+
         public DateTime? FechaEntrada { get; set; }
         public DateTime? FechaEntrega { get; set; }
-        public List<Factura> Facturas { get; set; }       
+          
         public int NPresupuesto { get; set; }        
         public string Observaciones { get; set; }
         public DateTime? FechaReal { get; set; }
         public bool Finalizado { get; set; }
+
+        public virtual ClientItem Cliente { get; set; }
+        public virtual ICollection<Factura> Facturas { get; set; }
+
     }
 
     public class TrabajosSource
