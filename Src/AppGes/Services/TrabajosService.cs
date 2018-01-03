@@ -2,6 +2,7 @@
 using AppGes.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace AppGes.Services
         public void Add(TrabajoItem trabajo)
         {
             if (_context.Trabajos.Count() > 0)
-                trabajo.Id = _context.Trabajos.Max(x => x.Id) + 1;
+                            trabajo.Id = _context.Trabajos.Max(x => x.Id) + 1;
             else
                 trabajo.Id = 1;
 
@@ -55,16 +56,19 @@ namespace AppGes.Services
 
         public void Update(TrabajoItem trabajo)
         {
-            var item = _context.Trabajos.Where(x => x.Id.Equals(trabajo.Id)).FirstOrDefault();
+            var item = _context.Trabajos.Find(trabajo.Id);
 
-            _context.Trabajos.Remove(item);
+            if (item != null)
+            {
+                //item = trabajo;
 
-            trabajo.Id = item.Id;
+                _context.Trabajos.Attach(trabajo);
+                _context.Entry(trabajo).State = EntityState.Modified;
+                _context.SaveChanges();
 
-            _context.Trabajos.Add(trabajo);
-
+            }
             
-            _context.SaveChanges();
+            //_context.SaveChanges();
         }
     }
 }

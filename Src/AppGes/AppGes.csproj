@@ -70,8 +70,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context.cs" />
-    <Compile Include="Fake\ClientFake.cs" />
-    <Compile Include="Fake\TrabajosFake.cs" />
+    <Compile Include="Properties\Fake\ClientFake.cs" />
+    <Compile Include="Properties\Fake\TrabajosFake.cs" />
     <Compile Include="Interfaces\IServicioCliente.cs" />
     <Compile Include="Interfaces\ITrabajos.cs" />
     <Compile Include="Model\ClientModel.cs" />

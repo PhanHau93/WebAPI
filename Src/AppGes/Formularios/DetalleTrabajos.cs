@@ -107,9 +107,11 @@ namespace AppGes.Formularios
                 if (trabajo.Facturas != null && trabajo.Facturas.Count > 0)
                 {
                     dgvFacturas.DataSource = null;
-                    dgvFacturas.Update();
-                    dgvFacturas.DataSource = trabajo.Facturas;
-                    dgvFacturas.Update();
+                    BindingList<Factura> bl = new BindingList<Factura>(_item.Facturas.ToList());
+
+                    dgvFacturas.DataSource = bl;
+                    //dgvFacturas.Update();
+                    //FacturasChanged();
                     LimpiarSelecionGridFacturas();
                 }
 
@@ -291,7 +293,7 @@ namespace AppGes.Formularios
         private void LimpiarSelecionGridFacturas()
         {
             dgvFacturas.ClearSelection();
-            if (_item.Facturas.Count > 0)
+            if (dgvFacturas.Rows.Count > 0)
                 dgvFacturas.Rows[0].Selected = true;
         }
 
@@ -397,7 +399,10 @@ namespace AppGes.Formularios
                             facturaEditar.Cuenta = Convert.ToDecimal(tbCuenta.Text);
                             this._item.Facturas.Add(facturaEditar);
                             if (_item.Facturas.Count > 0)
-                                dgvFacturas.DataSource = _item.Facturas;
+                            {
+                                BindingList<Factura> bl2 = new BindingList<Factura>(_item.Facturas.ToList());
+                                dgvFacturas.DataSource = bl2;
+                            }
                             else
                                 dgvFacturas.DataSource = null;
 
@@ -406,8 +411,8 @@ namespace AppGes.Formularios
                     }
                 }
                 dgvFacturas.DataSource = null;
-                dgvFacturas.DataSource = _item.Facturas;
-                dgvFacturas.Update();
+                BindingList<Factura> bl = new BindingList<Factura>(_item.Facturas.ToList());
+                dgvFacturas.DataSource = bl;
                 LimpiarSelecionGridFacturas();
                 FacturasChanged();
 

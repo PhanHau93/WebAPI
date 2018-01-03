@@ -25,3 +25,4 @@ C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\bin\Debug\EntityFra
 C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\bin\Debug\EntityFramework.xml
 C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\obj\Debug\AppGes.Formularios.DetalleTrabajos.resources
+C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\obj\Debug\AppGes.csprojResolveAssemblyReference.cache

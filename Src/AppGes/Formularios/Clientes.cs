@@ -34,6 +34,8 @@ namespace AppGes.Formularios
             InitializeComponent();
 
             CargaGrid();
+
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
         }
 
         public ClientesForm(int id, bool busqueda) //Editar
@@ -48,12 +50,15 @@ namespace AppGes.Formularios
 
             CargaGrid();
             CargaFormularioClientes();
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
         }
 
         private void Clientes_Load(object sender, EventArgs e)
         {
            
             CargaFormularioClientes();
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            
 
         }
 
@@ -73,10 +78,15 @@ namespace AppGes.Formularios
             {
                 dgvClientes.Enabled = false;
                 cargarClientePorId(idCliente);
+                panelBusqueda.Visible = false;
             }
             else //(modoApertura.Equals(Modo.consulta))
             {
+                
                 utils.HabilitarDeshabilitarTextBox(this.Controls, false);
+                panelBusqueda.Visible = true;
+                tx_Apellidos.Enabled = true;
+                tx_Nombre.Enabled = true;
                 if (idCliente > 0)
                     cargarClientePorId(idCliente);
 
@@ -329,5 +339,80 @@ namespace AppGes.Formularios
                 }
             }
         }
+
+        private void bt_Buscar_Click(object sender, EventArgs e)
+        {
+            int header = 0;
+            string filtro = string.Empty;
+
+            if (string.IsNullOrEmpty(tx_Apellidos.Text) && string.IsNullOrEmpty(tx_Nombre.Text))
+                return;
+            if (string.IsNullOrEmpty(tx_Apellidos.Text))
+            {
+                header = 1;
+                filtro = tx_Nombre.Text;
+            }
+            else if (string.IsNullOrEmpty(tx_Nombre.Text))
+            {
+                header = 2;
+                filtro = tx_Apellidos.Text;
+            }
+
+            for (int u = 0; u < dgvClientes.RowCount; u++)
+            {
+                CurrencyManager currencyManager1 = (CurrencyManager)BindingContext[dgvClientes.DataSource];
+                currencyManager1.SuspendBinding();
+                if (header > 0)
+                {
+                    if (dgvClientes.Rows[u].Cells[header].Value.ToString().Contains(filtro))
+                    {
+                        dgvClientes.Rows[u].Visible = true;
+                    }
+                    else
+                    {
+                        dgvClientes.Rows[u].Visible = false;
+                    }
+                }
+                else
+                {
+                    if (dgvClientes.Rows[u].Cells[2].Value.ToString().Contains(tx_Apellidos.Text) &&
+                        dgvClientes.Rows[u].Cells[1].Value.ToString().Contains(tx_Nombre.Text))
+                    {
+                        dgvClientes.Rows[u].Visible = true;
+                    }
+                    else
+                    {
+                        dgvClientes.Rows[u].Visible = false;
+                    }
+                }
+                currencyManager1.ResumeBinding();
+            }
+
+            bt_Limpiar.Enabled = true;
+
+
+
+
+
+        }
+
+        private void bt_Limpiar_Click(object sender, EventArgs e)
+        {
+
+            for (int u = 0; u < dgvClientes.RowCount; u++)
+            {
+                CurrencyManager currencyManager1 = (CurrencyManager)BindingContext[dgvClientes.DataSource];
+                currencyManager1.SuspendBinding();
+
+                dgvClientes.Rows[u].Visible = true;
+
+                currencyManager1.ResumeBinding();
+            }
+            tx_Apellidos.Text = "";
+            tx_Nombre.Text = "";
+            bt_Limpiar.Enabled = false;
+        }
+
+        
     }
 }

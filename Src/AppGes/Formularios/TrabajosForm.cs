@@ -25,7 +25,7 @@ namespace AppGes.Formularios
 
         private void CargarGridTrabajos()
         {
-           var trabajos = _servicioTrabajos.Get();
+            var trabajos = _servicioTrabajos.Get();
             dgvTrabajos.DataSource = ConvertirListado(trabajos);
 
         }
@@ -34,7 +34,7 @@ namespace AppGes.Formularios
         {
             List<TrabajosSource> source = new List<TrabajosSource>();
             if (trabajos.Count() > 0)
-            {               
+            {
                 foreach (TrabajoItem item in trabajos)
                 {
                     source.Add(TrabajosSource.convertToItem(item));
@@ -48,7 +48,7 @@ namespace AppGes.Formularios
         {
             ClientesForm clientesForm = new ClientesForm();
             clientesForm.Show();
-        }       
+        }
 
         private void TrabajosForm_Load(object sender, EventArgs e)
         {
@@ -87,7 +87,7 @@ namespace AppGes.Formularios
                 }
             }
 
-           
+
         }
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -113,12 +113,85 @@ namespace AppGes.Formularios
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();            
+            this.Close();
         }
 
         private void dgvTrabajos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             AbrirTrabajoPorId();
+        }
+
+        private void bt_Buscar_Click(object sender, EventArgs e)
+        {
+            int header = 0;
+            string filtro = string.Empty;
+
+            if (string.IsNullOrEmpty(tx_Apellidos.Text) && string.IsNullOrEmpty(tx_Nombre.Text))
+                return;
+            if (string.IsNullOrEmpty(tx_Apellidos.Text))
+            {
+                header = 1;
+                filtro = tx_Nombre.Text;
+            }
+            else if (string.IsNullOrEmpty(tx_Nombre.Text))
+            {
+                header = 2;
+                filtro = tx_Apellidos.Text;
+            }
+
+            for (int u = 0; u < dgvTrabajos.RowCount; u++)
+            {
+                CurrencyManager currencyManager1 = (CurrencyManager)BindingContext[dgvTrabajos.DataSource];
+                currencyManager1.SuspendBinding();
+                if (header > 0)
+                {
+                    if (dgvTrabajos.Rows[u].Cells[header].Value.ToString().Contains(filtro))
+                    {
+                        dgvTrabajos.Rows[u].Visible = true;
+                    }
+                    else
+                    {
+                        dgvTrabajos.Rows[u].Visible = false;
+                    }
+                }
+                else
+                {
+                    if (dgvTrabajos.Rows[u].Cells[2].Value.ToString().Contains(tx_Apellidos.Text) &&
+                        dgvTrabajos.Rows[u].Cells[1].Value.ToString().Contains(tx_Nombre.Text))
+                    {
+                        dgvTrabajos.Rows[u].Visible = true;
+                    }
+                    else
+                    {
+                        dgvTrabajos.Rows[u].Visible = false;
+                    }
+                }
+                currencyManager1.ResumeBinding();
+            }
+
+            bt_Limpiar.Enabled = true;
+
+
+
+
+
+        }
+
+        private void bt_Limpiar_Click(object sender, EventArgs e)
+        {
+
+            for (int u = 0; u < dgvTrabajos.RowCount; u++)
+            {
+                CurrencyManager currencyManager1 = (CurrencyManager)BindingContext[dgvTrabajos.DataSource];
+                currencyManager1.SuspendBinding();
+
+                dgvTrabajos.Rows[u].Visible = true;
+
+                currencyManager1.ResumeBinding();
+            }
+            tx_Apellidos.Text = "";
+            tx_Nombre.Text = "";
+            bt_Limpiar.Enabled = false;
         }
     }
 }
