@@ -5,18 +5,10 @@ C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\bin\Debug\EntityFra
 C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\bin\Debug\Newtonsoft.Json.dll
 C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\bin\Debug\RestSharp.dll
-C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\bin\Debug\Xamarin.Forms.Core.dll
-C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\bin\Debug\Xamarin.Forms.Platform.dll
-C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\bin\Debug\Xamarin.Forms.Xaml.dll
 C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\bin\Debug\EntityFramework.xml
 C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\bin\Debug\Newtonsoft.Json.xml
 C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\bin\Debug\RestSharp.xml
-C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\bin\Debug\Xamarin.Forms.Core.pdb
-C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\bin\Debug\Xamarin.Forms.Core.xml
-C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\bin\Debug\Xamarin.Forms.Platform.pdb
-C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\bin\Debug\Xamarin.Forms.Xaml.pdb
-C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\bin\Debug\Xamarin.Forms.Xaml.xml
 C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\obj\Debug\AppGes.Formularios.DetalleTrabajos.resources
 C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\obj\Debug\AppGes.Formularios.ClientesForm.resources
 C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\obj\Debug\AppGes.Formularios.TrabajosForm.resources
@@ -25,3 +17,7 @@ C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\obj\Debug\AppGes.Pr
 C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\obj\Debug\AppGes.csproj.GenerateResource.Cache
 C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\obj\Debug\AppGes.exe
 C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\obj\Debug\AppGes.pdb
+C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\bin\Debug\AppGes.exe.manifest
+C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\bin\Debug\AppGes.application
+C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\obj\Debug\AppGes.exe.manifest
+C:\Users\a.roman.godinez\Source\Repos\MVCRestAPI2\Src\AppGes\obj\Debug\AppGes.application
