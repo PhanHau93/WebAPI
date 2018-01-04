@@ -34,6 +34,8 @@ namespace AppGes.Formularios
 
             this.Width = 1000;
             this.Height = 500;
+
+            editarToolStripMenuItem.Enabled = false;
         }
         public DetalleTrabajos(int id, bool consulta)
         {
