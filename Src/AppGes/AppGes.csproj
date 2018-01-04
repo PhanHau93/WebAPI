@@ -79,6 +79,7 @@
     <Compile Include="Model\Facturas.cs" />
     <Compile Include="Model\TrabajosModel.cs" />
     <Compile Include="ObservableListSource.cs" />
+    <Compile Include="Repository.cs" />
     <Compile Include="Services\ServicioCliente.cs" />
     <Compile Include="Services\TrabajosService.cs" />
     <Compile Include="Utils\Modo.cs" />

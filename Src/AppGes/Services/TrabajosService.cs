@@ -12,15 +12,15 @@ namespace AppGes.Services
 {
     public class TrabajosService : ITrabajos
     {
-        private Context _context = new Context();
-        public TrabajosService()
+        private Context _context;
+        public TrabajosService(Context Context)
         {
-
+            _context = Context;
         }
         public void Add(TrabajoItem trabajo)
         {
             if (_context.Trabajos.Count() > 0)
-                            trabajo.Id = _context.Trabajos.Max(x => x.Id) + 1;
+                trabajo.Id = _context.Trabajos.Max(x => x.Id) + 1;
             else
                 trabajo.Id = 1;
 
@@ -41,7 +41,8 @@ namespace AppGes.Services
 
         public IEnumerable<TrabajoItem> Get()
         {
-            return _context.Trabajos;
+
+            return _context.Trabajos.ToList();
         }
 
         public TrabajoItem Get(int id)
@@ -65,10 +66,12 @@ namespace AppGes.Services
                 _context.Trabajos.Attach(trabajo);
                 _context.Entry(trabajo).State = EntityState.Modified;
                 _context.SaveChanges();
-
             }
-            
+
             //_context.SaveChanges();
         }
+
+
+
     }
 }

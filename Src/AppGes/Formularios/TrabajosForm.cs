@@ -15,7 +15,7 @@ namespace AppGes.Formularios
 {
     public partial class TrabajosForm : Form
     {
-        private ITrabajos _servicioTrabajos = new AppGes.Services.TrabajosService();
+        private ITrabajos _servicioTrabajos = new AppGes.Services.TrabajosService(ContextRepository.Instance);
         public TrabajosForm()
         {
             InitializeComponent();
@@ -25,12 +25,19 @@ namespace AppGes.Formularios
 
         private void CargarGridTrabajos()
         {
+            
             var trabajos = _servicioTrabajos.Get();
-            dgvTrabajos.DataSource = ConvertirListado(trabajos);
+            
+
+            dgvTrabajos.DataMember = null;
+            dgvTrabajos.DataSource = null;
+
+            var binding = ConvertirListado(trabajos);
+            dgvTrabajos.DataSource = binding;
 
         }
 
-        private object ConvertirListado(IEnumerable<TrabajoItem> trabajos)
+        private BindingList<TrabajosSource> ConvertirListado(IEnumerable<TrabajoItem> trabajos)
         {
             List<TrabajosSource> source = new List<TrabajosSource>();
             if (trabajos.Count() > 0)
@@ -41,7 +48,8 @@ namespace AppGes.Formularios
                 }
             }
 
-            return source;
+            BindingList<TrabajosSource> bl = new BindingList<TrabajosSource>(source);
+            return bl;
         }
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -193,5 +201,7 @@ namespace AppGes.Formularios
             tx_Nombre.Text = "";
             bt_Limpiar.Enabled = false;
         }
+
+
     }
 }

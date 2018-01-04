@@ -59,10 +59,10 @@ namespace AppGes.Formularios
             this.bt_Buscar = new System.Windows.Forms.Button();
             this.tx_Nombre = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tx_Apellidos = new System.Windows.Forms.TextBox();
             this.bt_Limpiar = new System.Windows.Forms.Button();
+            this.tx_Apellidos = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrabajos)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -70,8 +70,11 @@ namespace AppGes.Formularios
             // 
             // dgvTrabajos
             // 
+            this.dgvTrabajos.AllowUserToAddRows = false;
+            this.dgvTrabajos.AllowUserToDeleteRows = false;
             this.dgvTrabajos.AllowUserToOrderColumns = true;
             this.dgvTrabajos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgvTrabajos.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.dgvTrabajos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTrabajos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -85,8 +88,9 @@ namespace AppGes.Formularios
             this.pendiente,
             this.Finalizado,
             this.nFactura});
+            this.dgvTrabajos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvTrabajos.Location = new System.Drawing.Point(0, 189);
-            this.dgvTrabajos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvTrabajos.Margin = new System.Windows.Forms.Padding(2);
             this.dgvTrabajos.MultiSelect = false;
             this.dgvTrabajos.Name = "dgvTrabajos";
             this.dgvTrabajos.ReadOnly = true;
@@ -101,7 +105,6 @@ namespace AppGes.Formularios
             this.Id.DataPropertyName = "Id";
             this.Id.HeaderText = "Id";
             this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
             this.Id.Width = 48;
             // 
             // Nombre
@@ -109,7 +112,6 @@ namespace AppGes.Formularios
             this.Nombre.DataPropertyName = "Nombre";
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
             this.Nombre.Width = 87;
             // 
             // Apellidos
@@ -117,7 +119,6 @@ namespace AppGes.Formularios
             this.Apellidos.DataPropertyName = "Apellidos";
             this.Apellidos.HeaderText = "Apellidos";
             this.Apellidos.Name = "Apellidos";
-            this.Apellidos.ReadOnly = true;
             this.Apellidos.Width = 94;
             // 
             // Fecha_Entrada
@@ -125,7 +126,6 @@ namespace AppGes.Formularios
             this.Fecha_Entrada.DataPropertyName = "Presupuesto";
             this.Fecha_Entrada.HeaderText = "Presupuesto";
             this.Fecha_Entrada.Name = "Fecha_Entrada";
-            this.Fecha_Entrada.ReadOnly = true;
             this.Fecha_Entrada.Width = 117;
             // 
             // fechaEntrada
@@ -133,7 +133,6 @@ namespace AppGes.Formularios
             this.fechaEntrada.DataPropertyName = "FechaEntrada";
             this.fechaEntrada.HeaderText = "Fecha Entrada";
             this.fechaEntrada.Name = "fechaEntrada";
-            this.fechaEntrada.ReadOnly = true;
             this.fechaEntrada.Width = 130;
             // 
             // fechaSalida
@@ -141,7 +140,6 @@ namespace AppGes.Formularios
             this.fechaSalida.DataPropertyName = "FechaEntrega";
             this.fechaSalida.HeaderText = "Fecha Entrega";
             this.fechaSalida.Name = "fechaSalida";
-            this.fechaSalida.ReadOnly = true;
             this.fechaSalida.Width = 130;
             // 
             // importeTotal
@@ -149,7 +147,6 @@ namespace AppGes.Formularios
             this.importeTotal.DataPropertyName = "Total";
             this.importeTotal.HeaderText = "Total";
             this.importeTotal.Name = "importeTotal";
-            this.importeTotal.ReadOnly = true;
             this.importeTotal.Width = 69;
             // 
             // Cuenta
@@ -157,7 +154,6 @@ namespace AppGes.Formularios
             this.Cuenta.DataPropertyName = "Cuenta";
             this.Cuenta.HeaderText = "Cuenta";
             this.Cuenta.Name = "Cuenta";
-            this.Cuenta.ReadOnly = true;
             this.Cuenta.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Cuenta.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Cuenta.Width = 59;
@@ -167,7 +163,6 @@ namespace AppGes.Formularios
             this.pendiente.DataPropertyName = "Pendiente";
             this.pendiente.HeaderText = "Pendiente";
             this.pendiente.Name = "pendiente";
-            this.pendiente.ReadOnly = true;
             this.pendiente.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.pendiente.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.pendiente.Width = 78;
@@ -177,7 +172,6 @@ namespace AppGes.Formularios
             this.Finalizado.DataPropertyName = "Finalizado";
             this.Finalizado.HeaderText = "Finalizado";
             this.Finalizado.Name = "Finalizado";
-            this.Finalizado.ReadOnly = true;
             this.Finalizado.Width = 78;
             // 
             // nFactura
@@ -185,7 +179,6 @@ namespace AppGes.Formularios
             this.nFactura.DataPropertyName = "Factura";
             this.nFactura.HeaderText = "Factura";
             this.nFactura.Name = "nFactura";
-            this.nFactura.ReadOnly = true;
             this.nFactura.Width = 85;
             // 
             // contextMenuStrip1
@@ -312,31 +305,6 @@ namespace AppGes.Formularios
             this.panel1.Size = new System.Drawing.Size(295, 133);
             this.panel1.TabIndex = 9;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 17);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Nombre";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 50);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 17);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Apellidos";
-            // 
-            // tx_Apellidos
-            // 
-            this.tx_Apellidos.Location = new System.Drawing.Point(97, 47);
-            this.tx_Apellidos.Name = "tx_Apellidos";
-            this.tx_Apellidos.Size = new System.Drawing.Size(185, 22);
-            this.tx_Apellidos.TabIndex = 11;
-            // 
             // bt_Limpiar
             // 
             this.bt_Limpiar.Enabled = false;
@@ -348,6 +316,31 @@ namespace AppGes.Formularios
             this.bt_Limpiar.UseVisualStyleBackColor = true;
             this.bt_Limpiar.Click += new System.EventHandler(this.bt_Limpiar_Click);
             // 
+            // tx_Apellidos
+            // 
+            this.tx_Apellidos.Location = new System.Drawing.Point(97, 47);
+            this.tx_Apellidos.Name = "tx_Apellidos";
+            this.tx_Apellidos.Size = new System.Drawing.Size(185, 22);
+            this.tx_Apellidos.TabIndex = 11;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(16, 50);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 17);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Apellidos";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(16, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 17);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Nombre";
+            // 
             // TrabajosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -357,7 +350,7 @@ namespace AppGes.Formularios
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.dgvTrabajos);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "TrabajosForm";
             this.Text = "Trabajos";
             this.Load += new System.EventHandler(this.TrabajosForm_Load);

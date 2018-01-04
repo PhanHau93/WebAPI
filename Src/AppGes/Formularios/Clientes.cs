@@ -24,8 +24,8 @@ namespace AppGes.Formularios
 
         private Utilidades utils = new Utilidades();
         private List<ClientItem> listadoClientes;
-        private IServicioCliente _servicioCliente = new AppGes.Services.ServicioCliente();
-        private ITrabajos _servicioTrabajo = new AppGes.Services.TrabajosService();
+        private IServicioCliente _servicioCliente = new AppGes.Services.ServicioCliente(ContextRepository.Instance);
+        private ITrabajos _servicioTrabajo = new AppGes.Services.TrabajosService(ContextRepository.Instance);
 
         public ClientesForm()
         {

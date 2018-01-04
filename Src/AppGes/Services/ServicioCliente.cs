@@ -10,10 +10,10 @@ namespace AppGes.Services
 {
     public class ServicioCliente : IServicioCliente
     {
-        private Context _context = new Context();
-        public ServicioCliente()
+        private Context _context;
+        public ServicioCliente(Context Context)
         {
-
+            _context = new Context();
         }
         public void addClient(ClientItem client)
         {

@@ -21,8 +21,8 @@ namespace AppGes.Formularios
         private int ModoFactura { get; set; }
         public bool facturaModificada = false;
         private Utilidades utils = new Utilidades();
-        private ITrabajos _servicioTrabajo = new AppGes.Services.TrabajosService();
-        private IServicioCliente _servicioCliente = new AppGes.Services.ServicioCliente();
+        private ITrabajos _servicioTrabajo = new AppGes.Services.TrabajosService(ContextRepository.Instance);
+        private IServicioCliente _servicioCliente = new AppGes.Services.ServicioCliente(ContextRepository.Instance);
         private TrabajoItem _item = new TrabajoItem();
         private ClientItem _client;
 
@@ -86,7 +86,7 @@ namespace AppGes.Formularios
                 if (trabajo.FechaEntrega.HasValue)
                 {
                     dtpFechaEntrega.Value = trabajo.FechaEntrega.Value;
-                    dtpFechaEntrada.Checked = true;
+                    dtpFechaEntrega.Checked = true;
                 }
                 else
                     dtpFechaEntrega.Visible = false;
@@ -560,7 +560,7 @@ namespace AppGes.Formularios
             }
             else
             {
-                _item.FechaEntrada = dtpFechaEntrega.Value;
+                _item.FechaEntrega = dtpFechaEntrega.Value;
             }
             if (!dtpFechaEntrada.Checked)
             {

@@ -18,10 +18,10 @@ namespace AppGes
         [STAThread]
         static void Main()
         {
-#if DEBUG
-            CrearClientes();
-            CrearTrabajos();
-#endif
+//#if DEBUG
+//            CrearClientes();
+//            CrearTrabajos();
+//#endif
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
