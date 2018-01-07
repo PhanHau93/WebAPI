@@ -16,15 +16,7 @@ namespace AppGes
        // public DbSet<ProviderItem> Providers { get; set; }
         public DbSet<TrabajoItem> Trabajos { get; set; }
 
-    }
+        
 
-    public static class Entity {
-        public static void ReloadEntity<TEntity>(
-        this DbContext context,
-        TEntity entity)
-        where TEntity : class
-        {
-            context.Entry(entity).Reload();
-        }
     }
 }
